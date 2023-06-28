@@ -9,9 +9,9 @@ function App() {
 
   const [value, setValue] = useState('');
 
-  const addToList = () => {
+  const addToList = async() => {
     if(foodName !== "" && value !== ""){
-      Axios.post("https://foodbackend-xiy8.onrender.com/insert", {
+      await Axios.post("https://f-backend-ten.vercel.app/insert", {
         foodName: foodName,
         days: days,
       })
@@ -20,9 +20,9 @@ function App() {
       alert("enter both values")
     }
   }
-  const updateFood = (id) => {
+  const updateFood = async(id) => {
     if(newFoodName !== ""){
-      Axios.put("https://foodbackend-xiy8.onrender.com/update", {
+      await Axios.put("https://f-backend-ten.vercel.app/update", {
         id: id,
         newFoodName: newFoodName
       })
@@ -33,13 +33,13 @@ function App() {
     
   }
 
-  const deleteFood = (id) => {
-      Axios.delete(`https://foodbackend-xiy8.onrender.com/delete/${id}`)
+  const deleteFood = async(id) => {
+      await Axios.delete(`https://f-backend-ten.vercel.app/delete/${id}`)
       window.location.reload()
   }
 
   useEffect(() => {
-    Axios.get("https://foodbackend-xiy8.onrender.com/read").then((res) => {
+    Axios.get("https://f-backend-ten.vercel.app/read").then((res) => {
       SetFoodList(res.data)
       console.log(res.data)
     })
@@ -48,7 +48,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Crud App With MERN</h1>
+      <h1>Crud App With MEN</h1>
 
       <label>Food Name</label>
       <input
