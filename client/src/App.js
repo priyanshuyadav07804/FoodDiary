@@ -11,7 +11,7 @@ function App() {
 
   const addToList = () => {
     if(foodName !== "" && value !== ""){
-      Axios.post("https://foodbackend-xiy8.onrender.com/1/insert", {
+      Axios.post("https://foodbackend-xiy8.onrender.com/insert", {
         foodName: foodName,
         days: days,
       })
